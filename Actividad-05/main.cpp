@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
   
-  // cout << "Hola github!\n";
+  cout << "Hola github!\n";
 
   string nombre;
   cout << "Nombre : "; 
