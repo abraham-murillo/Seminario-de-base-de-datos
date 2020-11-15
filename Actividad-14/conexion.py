@@ -48,6 +48,6 @@ def iniciarSesion(correo, contra):
   cursor.execute(query, (correo, h))
   id = cursor.fetchone()
   if id:
-      return id[0], True
+    return id[0], True
   else:
-      return None, False
+    return None, False
