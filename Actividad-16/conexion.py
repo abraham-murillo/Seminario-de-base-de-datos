@@ -57,10 +57,10 @@ def insertarPelicula(pelicula):
   fecha_visto = pelicula['fecha_visto']
   imagen = pelicula['imagen']
   director = pelicula['director']
-  anio = pelicula['año']
+  anio = pelicula['anio']
   usuarioId = pelicula['usuarioId']
 
-  insertar = "INSERT INTO pelicula (titulo, fecha_visto, imagen, director, año, usuarioId) VALUES (%s, %s, %s, %s, %s, %s)"
+  insertar = "INSERT INTO pelicula (titulo, fecha_visto, imagen, director, anio, usuarioId) VALUES (%s, %s, %s, %s, %s, %s)"
   cursor.execute(insertar, (titulo, fecha_visto, imagen, director, anio, usuarioId))
   bd.commit()
 
@@ -70,7 +70,7 @@ def insertarPelicula(pelicula):
     return False
 
 def getPeliculas():
-  query = "SELECT id, titulo, imagen, fecha_visto, director, año FROM pelicula"
+  query = "SELECT id, titulo, imagen, fecha_visto, director, anio FROM pelicula"
   cursor.execute(query)
   peliculas = []
   for row in cursor.fetchall():
@@ -80,7 +80,7 @@ def getPeliculas():
       'imagen': row[2],
       'fecha_visto': row[3],
       'director': row[4],
-      'año': row[5] 
+      'anio': row[5] 
     }
     peliculas.append(pelicula)
   
@@ -97,10 +97,10 @@ def getPelicula(id):
     pelicula['fecha_visto'] = row[2]
     pelicula['imagen'] = row[3]
     pelicula['director'] = row[4]
-    pelicula['año'] = row[5]
+    pelicula['anio'] = row[5]
     pelicula['valoracion'] = row[6]
     pelicula['favorito'] = row[7]
-    pelicula['reseña'] = row[8]
+    pelicula['resenia'] = row[8]
     pelicula['compartido'] = row[9]
 
   return pelicula
@@ -136,10 +136,10 @@ def getPeliculasUsuario(id):
       'fecha_visto': row[2],
       'imagen': row[3],
       'director': row[4],
-      'año': row[5],
+      'anio': row[5],
       'valoracion': row[6],
       'favorito': row[7],
-      'reseña': row[8],
+      'resenia': row[8],
       'compartido': row[9]
     }
     peliculas.append(pelicula)
